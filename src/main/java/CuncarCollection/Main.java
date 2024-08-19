@@ -22,7 +22,6 @@ public class Main {
         Thread genereteText = new Thread(() -> {
             for (int i = 0; i < texts.length; i++) {
                 texts[i] = generateText("abc", LONG_WORDS);
-                //System.out.println(texts[i]);
                 try {
                     textsWordAInQueue.put(texts[i]);
                     textsWordBInQueue.put(texts[i]);
@@ -71,9 +70,7 @@ public class Main {
             }
         }
         System.out.println("Строка с самым большим количеством символа " + word + ": \n" + tmpText + "-> " + maxCnt);
-        //System.out.println(tmpText + "-> " + maxCnt);
     }
-
     public static String generateText(String letters, int length) {
         Random random = new Random();
         StringBuilder text = new StringBuilder();
