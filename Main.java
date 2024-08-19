@@ -1,10 +1,11 @@
-package MultyThread.CuncarCollection;
+package CuncarCollection;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class Main {
+
     public static final int COUNT_WORDS_COUNT = 10_000;
     public static final int LONG_WORDS = 100_000;
     public static final int MAX_COUNT_BLOCK_QUEUE = 100;
@@ -37,16 +38,19 @@ public class Main {
             maxCountWord(textsWordAInQueue, 'a');
         });
         threadA.start();
-        threadA.join();
+
         Thread threadB = new Thread(() -> {
             maxCountWord(textsWordBInQueue, 'b');
         });
         threadB.start();
-        threadB.join();
+
         Thread threadC = new Thread(() -> {
             maxCountWord(textsWordCInQueue, 'c');
         });
         threadC.start();
+
+        threadA.join();
+        threadB.join();
         threadC.join();
     }
 
