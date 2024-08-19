@@ -52,6 +52,7 @@ public class Main {
         threadA.join();
         threadB.join();
         threadC.join();
+
     }
 
     public static void maxCountWord(BlockingQueue<String> text, char word) {
@@ -69,8 +70,8 @@ public class Main {
                 throw new RuntimeException(e);
             }
         }
-        System.out.printf("Строка с самым большим количеством символа %s : \n", word);
-        System.out.println(tmpText + "-> " + maxCnt);
+        System.out.println("Строка с самым большим количеством символа " + word + ": \n" + tmpText + "-> " + maxCnt);
+        //System.out.println(tmpText + "-> " + maxCnt);
     }
 
     public static String generateText(String letters, int length) {
